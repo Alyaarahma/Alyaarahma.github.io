@@ -1,140 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alyaa Rahma Nabiilah | Portfolio</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f3ead6;
-      color: #2f2f2f;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3ead8;
+      color: #262626;
       line-height: 1.6;
     }
 
-    header {
-      padding: 80px 10%;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-    }
-
-    section {
-      padding: 50px 10%;
-      max-width: 1000px;
+    .container {
+      width: min(1120px, 88%);
       margin: auto;
     }
 
-    h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(243, 234, 216, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: #222;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #29624e;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 15px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #29624e;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: .95;
+      margin: 0 0 26px;
+      letter-spacing: -3px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 650px;
+      color: #4c4c4c;
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: #29624e;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #333;
+      color: #333;
+    }
+
+    .hero-card {
+      background: #183f35;
+      color: white;
+      padding: 42px;
+      border-radius: 28px;
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-card small {
+      opacity: .7;
+      letter-spacing: 1px;
+    }
+
+    .hero-card h2 {
+      font-size: 34px;
+      line-height: 1.1;
+      margin: 10px 0;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: #29624e;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1;
+      margin: 10px 0;
+      letter-spacing: -1.5px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .about-grid p {
+      margin-top: 0;
+      font-size: 17px;
+      color: #4a4a4a;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 9px 14px;
+      background: #fffaf1;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
     }
 
     .project {
-      background: white;
-      padding: 24px;
-      margin-bottom: 20px;
-      border-radius: 12px;
+      background: #fffaf1;
+      border-radius: 22px;
+      padding: 30px;
+      border: 1px solid rgba(0,0,0,.08);
+      transition: .25s;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(0,0,0,.08);
+    }
+
+    .project-tag {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #29624e;
+      font-weight: 800;
     }
 
     .project h3 {
-      margin-top: 0;
+      font-size: 26px;
+      margin: 10px 0 12px;
     }
 
-    a {
-      color: #2f5d50;
-      font-weight: bold;
+    .project p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 18px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      color: #29624e;
+      font-weight: 700;
       text-decoration: none;
+      font-size: 14px;
+    }
+
+    .learning {
+      background: #193f35;
+      color: white;
+      border-radius: 30px;
+      padding: 50px;
+    }
+
+    .learning p {
+      max-width: 700px;
+      color: rgba(255,255,255,.78);
+      font-size: 17px;
+    }
+
+    .learning-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .learning-items span {
+      padding: 10px 15px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 20px;
+    }
+
+    .experience {
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(0,0,0,.12);
+    }
+
+    .experience h3 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    .experience small {
+      color: #29624e;
+      font-weight: 700;
+    }
+
+    .experience p {
+      color: #555;
+      max-width: 800px;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(42px, 7vw, 76px);
+      margin-bottom: 18px;
+    }
+
+    .contact p {
+      color: #555;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 28px;
     }
 
     footer {
+      padding: 35px 0;
       text-align: center;
-      padding: 40px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid,
+      .about-grid,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        padding: 16px 0;
+        flex-direction: column;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-card {
+        min-height: 250px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>ALYAA RAHMA NABIILAH</h1>
-  <p>Informatics Engineering Student | Product Design & Technology</p>
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="#">ALYAA.</a>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#learning">Learning</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <span class="eyebrow">Portfolio 2026</span>
+
+      <h1>
+        Alyaa Rahma<br>
+        Nabiilah
+      </h1>
+
+      <p>
+        Informatics Engineering student at Universitas Brawijaya,
+        exploring product design, web development, and technology while
+        expanding my knowledge in MLOps and Digital Image Processing.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          View Projects
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <small>CURRENT FOCUS</small>
+
+      <h2>
+        Product Design<br>
+        × Technology
+      </h2>
+
+      <p>
+        Learning how thoughtful interfaces and technical systems
+        come together to create useful digital products.
+      </p>
+    </div>
+
+  </div>
 </header>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    I’m an Informatics Engineering student at Universitas Brawijaya with an interest
-    in product design, user interfaces, and technology. Through academic projects,
-    I have explored system analysis, web application development, and interface design.
-    I’m currently expanding my knowledge in MLOps and Digital Image Processing.
-  </p>
+<section id="about">
+  <div class="container">
+
+    <div class="section-title">
+      <span>01 — ABOUT</span>
+      <h2>A little about me.</h2>
+    </div>
+
+    <div class="about-grid">
+
+      <div>
+        <p>
+          I’m an Informatics Engineering student at Universitas Brawijaya
+          with an interest in product design, user interfaces, and technology.
+          Through academic projects, I have explored system analysis,
+          interface design, and web application development.
+        </p>
+
+        <p>
+          I’m currently broadening my technical interests through MLOps
+          and Digital Image Processing, while continuing to learn how
+          digital products move from ideas into usable solutions.
+        </p>
+      </div>
+
+      <div>
+        <h3>Tools & Interests</h3>
+
+        <div class="skills">
+          <span class="skill">Figma</span>
+          <span class="skill">UI Design</span>
+          <span class="skill">Web Development</span>
+          <span class="skill">System Analysis</span>
+          <span class="skill">MLOps</span>
+          <span class="skill">Digital Image Processing</span>
+          <span class="skill">Computer Vision</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>Selected Projects</h2>
+<section id="projects">
+  <div class="container">
 
-  <div class="project">
-    <h3>SIGAP — Sistem Informasi Gizi Anak dan Pemantauan</h3>
-    <p>
-      SIGAP is a web-based platform designed to help mothers monitor children’s
-      nutritional growth through a simple and accessible interface based on WHO
-      growth standards.
-    </p>
+    <div class="section-title">
+      <span>02 — SELECTED PROJECTS</span>
+      <h2>Things I’ve worked on.</h2>
+    </div>
+
+    <div class="projects">
+
+      <article class="project">
+        <span class="project-tag">
+          Web Application Development
+        </span>
+
+        <h3>SIGAP</h3>
+
+        <p>
+          SIGAP is a web-based platform designed to help mothers monitor
+          children’s nutritional growth through a simple and accessible
+          interface based on WHO growth standards.
+        </p>
+
+        <div class="project-links">
+          <a
+            href="https://www.figma.com/proto/rEYqFLpgLrBodTL8w8gvlI/PAW---SIGAP?node-id=88-3&amp;viewport=-1146%2C-207%2C0.48&amp;t=OQxScMFH79RHlWhS-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=88%3A3&amp;show-proto-sidebar=1&amp;page-id=0%3A1"
+            target="_blank">
+            View Prototype ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="project-tag">
+          System Analysis & Design
+        </span>
+
+        <h3>EatWise</h3>
+
+        <p>
+          EatWise is a digital platform designed to reduce food waste
+          through surplus food redistribution, recipe recommendations,
+          and educational content on sustainable food management.
+        </p>
+
+        <div class="project-links">
+          <a
+            href="https://www.figma.com/proto/KQBojHaLQFngfvTAKGHgME/KWU-EatWise?node-id=244-45&amp;p=f&amp;viewport=-1202%2C965%2C0.76&amp;t=RTaLzbcUXrwotF6S-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=23%3A144&amp;page-id=0%3A1"
+            target="_blank">
+            View Prototype ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="project-tag">
+          Competition Project — HOLOGY
+        </span>
+
+        <h3>EcoCycle</h3>
+
+        <p>
+          EcoCycle is an AI-assisted platform that helps users identify
+          and manage organic waste through digital barter, marketplace
+          features, pickup tracking, and environmental impact monitoring.
+        </p>
+
+        <div class="project-links">
+          <a
+            href="https://www.figma.com/proto/vhHiWVNslmMJfG5w6nEibh/HOLOGY?page-id=0%3A1&amp;node-id=199-408&amp;viewport=-638%2C-19%2C0.39&amp;t=Zf4Skqcg6oqRJwiV-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=234%3A662&amp;show-proto-sidebar=1"
+            target="_blank">
+            View Prototype ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="project-tag">
+          Human-Computer Interaction
+        </span>
+
+        <h3>LokaWear</h3>
+
+        <p>
+          LokaWear is a mobile application concept combining a digital
+          wardrobe with local fashion discovery, outfit recommendations,
+          and support for local fashion products.
+        </p>
+
+        <div class="project-links">
+          <a
+            href="https://www.figma.com/proto/nmHqNrtS5D7eefYUOAstis/Kelompok-7---UI-UX-Design?node-id=253-75&amp;viewport=-2863%2C-440%2C0.61&amp;t=UikubgRJ9rJvOuhj-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=253%3A75&amp;page-id=206%3A25&amp;show-proto-sidebar=1"
+            target="_blank">
+            View Prototype ↗
+          </a>
+        </div>
+      </article>
+
+    </div>
   </div>
-
-  <div class="project">
-    <h3>EatWise</h3>
-    <p>
-      EatWise is a digital platform designed to reduce food waste through surplus
-      food redistribution, recipe recommendations, and educational content on
-      sustainable food management.
-    </p>
-  </div>
-
-  <div class="project">
-    <h3>EcoCycle</h3>
-    <p>
-      EcoCycle is an AI-assisted platform that helps users identify and manage
-      organic waste through digital barter, marketplace features, pickup tracking,
-      and environmental impact monitoring.
-    </p>
-  </div>
-
-  <div class="project">
-    <h3>LokaWear</h3>
-    <p>
-      LokaWear is a mobile application concept that combines a digital wardrobe
-      with local fashion discovery and personalized outfit recommendations.
-    </p>
-  </div>
-
 </section>
 
-<section>
-  <h2>Currently Learning</h2>
-  <p>MLOps · Digital Image Processing · Computer Vision</p>
+<section id="experience">
+  <div class="container">
+
+    <div class="section-title">
+      <span>03 — EXPERIENCE</span>
+      <h2>Beyond the classroom.</h2>
+    </div>
+
+    <div class="experience-list">
+
+      <div class="experience">
+        <small>INTRIVIA 2025</small>
+        <h3>Design, Documentation & Multimedia Staff</h3>
+        <p>
+          Contributed to event visual communication through social media
+          content, promotional materials, logo assets, and multimedia design.
+        </p>
+      </div>
+
+      <div class="experience">
+        <small>TECHPRENEUR 2025</small>
+        <h3>Creative Committee</h3>
+        <p>
+          Designed promotional content and visual materials to support
+          the event’s digital presence and communication.
+        </p>
+      </div>
+
+      <div class="experience">
+        <small>FORCE 2025</small>
+        <h3>Fundraising & Sponsorship Staff</h3>
+        <p>
+          Supported sponsorship outreach and communication with potential
+          external partners to help meet event funding needs.
+        </p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>Contact</h2>
-  <p>
-    <a href="https://linkedin.com/in/alyaa-rahma-nabiilah/" target="_blank">
-      LinkedIn
-    </a>
-  </p>
+<section id="learning">
+  <div class="container">
+
+    <div class="learning">
+      <span class="eyebrow" style="color:white;">
+        CURRENTLY LEARNING
+      </span>
+
+      <h2>Expanding into intelligent systems.</h2>
+
+      <p>
+        I’m currently building foundational knowledge in machine learning
+        operations and digital image processing as part of my academic
+        learning path.
+      </p>
+
+      <div class="learning-items">
+        <span>MLOps</span>
+        <span>Digital Image Processing</span>
+        <span>Computer Vision</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact">
+
+    <span class="eyebrow">LET’S CONNECT</span>
+
+    <h2>Let’s build something meaningful.</h2>
+
+    <p>
+      I’m open to internship opportunities where I can learn,
+      collaborate, and contribute to real-world technology projects.
+    </p>
+
+    <div class="contact-links">
+
+      <a
+        class="btn btn-primary"
+        href="mailto:alyaarahma@student.ub.ac.id">
+        Email
+      </a>
+
+      <a
+        class="btn btn-outline"
+        href="https://linkedin.com/in/alyaa-rahma-nabiilah/"
+        target="_blank">
+        LinkedIn
+      </a>
+
+      <a
+        class="btn btn-outline"
+        href="https://github.com/Alyaarahma"
+        target="_blank">
+        GitHub
+      </a>
+
+    </div>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 Alyaa Rahma Nabiilah</p>
+  © 2026 Alyaa Rahma Nabiilah
 </footer>
 
 </body>
