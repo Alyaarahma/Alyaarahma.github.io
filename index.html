@@ -30,7 +30,7 @@
       z-index: 99;
       background: rgba(243, 234, 216, 0.95);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .nav-inner {
@@ -74,7 +74,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 70px;
       align-items: center;
     }
@@ -91,7 +91,7 @@
 
     h1 {
       font-size: clamp(48px, 8vw, 88px);
-      line-height: .95;
+      line-height: 0.95;
       margin: 0 0 26px;
       letter-spacing: -3px;
     }
@@ -116,7 +116,7 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 700;
-      transition: .2s;
+      transition: 0.2s;
     }
 
     .btn-primary {
@@ -145,7 +145,7 @@
     }
 
     .hero-card small {
-      opacity: .7;
+      opacity: 0.7;
       letter-spacing: 1px;
     }
 
@@ -198,7 +198,7 @@
     .skill {
       padding: 9px 14px;
       background: #fffaf1;
-      border: 1px solid rgba(0,0,0,.08);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 999px;
       font-size: 14px;
     }
@@ -213,13 +213,13 @@
       background: #fffaf1;
       border-radius: 22px;
       padding: 30px;
-      border: 1px solid rgba(0,0,0,.08);
-      transition: .25s;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      transition: 0.25s;
     }
 
     .project:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 35px rgba(0,0,0,.08);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
     }
 
     .project-tag {
@@ -254,32 +254,6 @@
       font-size: 14px;
     }
 
-    .learning {
-      background: #193f35;
-      color: white;
-      border-radius: 30px;
-      padding: 50px;
-    }
-
-    .learning p {
-      max-width: 700px;
-      color: rgba(255,255,255,.78);
-      font-size: 17px;
-    }
-
-    .learning-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .learning-items span {
-      padding: 10px 15px;
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 999px;
-    }
-
     .experience-list {
       display: grid;
       gap: 20px;
@@ -287,7 +261,7 @@
 
     .experience {
       padding: 22px 0;
-      border-bottom: 1px solid rgba(0,0,0,.12);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     }
 
     .experience h3 {
@@ -303,6 +277,32 @@
     .experience p {
       color: #555;
       max-width: 800px;
+    }
+
+    .learning {
+      background: #193f35;
+      color: white;
+      border-radius: 30px;
+      padding: 50px;
+    }
+
+    .learning p {
+      max-width: 700px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 17px;
+    }
+
+    .learning-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .learning-items span {
+      padding: 10px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
     }
 
     .contact {
@@ -324,6 +324,12 @@
       gap: 16px;
       flex-wrap: wrap;
       margin-top: 28px;
+    }
+
+    .contact-email {
+      margin-top: 18px;
+      font-size: 15px;
+      color: #555;
     }
 
     footer {
@@ -384,7 +390,7 @@
       <span class="eyebrow">Portfolio 2026</span>
 
       <h1>
-        Alyaa Rahma<br>
+        Alyaa Rahma<br />
         Nabiilah
       </h1>
 
@@ -409,7 +415,7 @@
       <small>CURRENT FOCUS</small>
 
       <h2>
-        Product Design<br>
+        Product Design<br />
         × Technology
       </h2>
 
@@ -476,9 +482,7 @@
     <div class="projects">
 
       <article class="project">
-        <span class="project-tag">
-          Web Application Development
-        </span>
+        <span class="project-tag">Web Application Development</span>
 
         <h3>SIGAP</h3>
 
@@ -498,9 +502,7 @@
       </article>
 
       <article class="project">
-        <span class="project-tag">
-          System Analysis & Design
-        </span>
+        <span class="project-tag">System Analysis & Design</span>
 
         <h3>EatWise</h3>
 
@@ -520,9 +522,7 @@
       </article>
 
       <article class="project">
-        <span class="project-tag">
-          Competition Project — HOLOGY
-        </span>
+        <span class="project-tag">Competition Project — HOLOGY</span>
 
         <h3>EcoCycle</h3>
 
@@ -542,9 +542,7 @@
       </article>
 
       <article class="project">
-        <span class="project-tag">
-          Human-Computer Interaction
-        </span>
+        <span class="project-tag">Human-Computer Interaction</span>
 
         <h3>LokaWear</h3>
 
@@ -612,7 +610,7 @@
   <div class="container">
 
     <div class="learning">
-      <span class="eyebrow" style="color:white;">
+      <span class="eyebrow" style="color: white;">
         CURRENTLY LEARNING
       </span>
 
@@ -647,10 +645,9 @@
     </p>
 
     <div class="contact-links">
-
       <a
         class="btn btn-primary"
-        href="mailto:alyaarahma@student.ub.ac.id">
+        href="mailto:alyaa-rahma@student.ub.ac.id">
         Email
       </a>
 
@@ -667,8 +664,12 @@
         target="_blank">
         GitHub
       </a>
-
     </div>
+
+    <p class="contact-email">
+      alyaa-rahma@student.ub.ac.id
+    </p>
+
   </div>
 </section>
 
